@@ -10,7 +10,7 @@ import (
 )
 
 // Get all issues
-/*func GetIssues(c *gin.Context) {
+func GetIssues(c *gin.Context) {
 
     db := c.MustGet("db").(*sql.DB)
 
