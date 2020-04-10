@@ -15,7 +15,7 @@ func GetIssues(c *gin.Context) {
     db := c.MustGet("db").(*sql.DB)
 
     //var active_issues []*models.Issue{}
-    active_issues, err := models.GetAllIssues(db)//, &active_issues)
+    err := models.GetAllIssues(db)//, &active_issues)
 
     defer db.Close()
 
@@ -29,7 +29,7 @@ func GetIssues(c *gin.Context) {
         }
 
     } else {
-        c.JSON(http.StatusOK, active_issues)
+        c.JSON(http.StatusOK, "fuck this shit")
     }
 
 }
