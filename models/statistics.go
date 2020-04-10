@@ -4,6 +4,7 @@ package models
 
 import (
             "github.com/jinzhu/gorm"
+            "encoding/json"
 )
 
 type Statistics struct {
