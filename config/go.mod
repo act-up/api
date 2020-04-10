@@ -11,3 +11,4 @@ require (
 )
 
 replace github.com/act-up/api/controllers => /Users/antonellawilby/ActUp/api/controllers
+replace github.com/act-up/api/models => /Users/antonellawilby/ActUp/api/models

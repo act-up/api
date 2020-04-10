@@ -16,10 +16,8 @@ func GetIssues(c *gin.Context) {
 
     db := c.MustGet("db").(*sql.DB)
 
-    row := db.QueryRow("SELECT COUNT(*) FROM table_name")
+    row := db.QueryRow("SELECT COUNT(*) FROM active_issues")
 	err := row.Scan(&count)
-
-
 
    //active_issues, err := db.Query("SELECT id, first_name FROM active_issues LIMIT $1", 3)
 
