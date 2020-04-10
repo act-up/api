@@ -21,7 +21,7 @@ func SetupRoutes(db *sql.DB) *gin.Engine {
     g1 := r.Group("/")
     {
         // List all issues in database
-        //g1.GET("issues", controllers.GetIssues)
+        g1.GET("issues", controllers.GetIssues)
         g1.POST("issues/:id", controllers.GetIssue)
         //g1.GET("results", controllers.GetResults)
         //g1.GET("results/:id", controllers.GetResult)
