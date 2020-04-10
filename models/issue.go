@@ -3,15 +3,22 @@
 package models
 
 import (
-            "fmt"
-            "database/sql"
+            //"fmt"
+            "github.com/jinzhu/gorm"
             //"database/sql/driver"
-            //"encoding/json"
-            "log"
+            "encoding/json"
+            //"log"
             //"errors"
 )
 
 type Issue struct {
+    ID uint `json:"id" gorm:"primary_key"`
+    Issue json.RawMessage
+    ContactInfo json.RawMessage
+    WebformFormat json.RawMessage
+}
+
+/*type Issue struct {
     ID int
     IssueDescription IssueDescription
     ContactInfo ContactInfo
@@ -33,7 +40,7 @@ type ContactInfo struct {
 
 type WebformFormat struct {
     Url string `json:"url,omitempty"`
-}
+}*/
 
 // Return table name
 func (i *Issue) TableName() string {
@@ -41,7 +48,15 @@ func (i *Issue) TableName() string {
 }
 
 // Get all issues in database
-func GetAllIssues(db *sql.DB) (err error) {//(issues []Issue, err error) {
+func GetAllIssues(db *gorm.DB, issues *[]Issue) (err error) {
+	if err = db.Find(issues).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+
+//func GetAllIssues(db *sql.DB) (issues []Issue, err error) {
 
     /*var count int       // Number of rows in database
 
@@ -79,20 +94,24 @@ func GetAllIssues(db *sql.DB) (err error) {//(issues []Issue, err error) {
         log.Fatal(err)
     }*/
 
-    return nil
+//    return issues, err
 
-}
+//}
 
 
 // Get an issue by ID
-func GetAnIssue(db *sql.DB, issue *Issue, id int) (id_return int, err error) {
+func GetAnIssue(db *gorm.DB, issue *Issue, id string) (err error) {
+	if err := db.Where("id = ?", id).First(issue).Error; err != nil {
+		return err
+	}
+	return nil
+}
+/*func GetAnIssue(db *sql.DB, issue *Issue, id int) (err error) {
     if id == 1 {
         fmt.Printf("id: ", id)
     }
 
-
-    id_return = id
-    err = db.QueryRow("SELECT * FROM active_issues WHERE id=$1;", id).Scan(&issue.ID, &issue.IssueDescription)
+    err = db.QueryRow("SELECT * FROM active_issues WHERE id=1", id).Scan(&issue.ID, &issue.IssueDescription)
 
     if err != nil {
         fmt.Printf("Error: %s\n", err)
@@ -100,9 +119,9 @@ func GetAnIssue(db *sql.DB, issue *Issue, id int) (id_return int, err error) {
     }
     defer db.Close()
 
-    return id_return, err
+    return err
 
-}
+}*/
 
 
 // Return JSON-encoded representation of Issue struct

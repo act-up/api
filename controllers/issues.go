@@ -3,60 +3,52 @@
 package controllers
 
 import (
-            "fmt"
+            //"fmt"
             "net/http"
-            "database/sql"
-            "strconv"
+            "github.com/jinzhu/gorm"
+            _ "strconv"
             "github.com/gin-gonic/gin"
             "github.com/act-up/api/models"
 )
 
 // Get all issues
-func GetIssues(c *gin.Context) {
+func GetAllIssues(c *gin.Context) {
 
-    db := c.MustGet("db").(*sql.DB)
+    db := c.MustGet("db").(*gorm.DB)
 
-    //var active_issues []*models.Issue{}
-    err := models.GetAllIssues(db)//, &active_issues)
+    var active_issues []models.Issue
+    err := models.GetAllIssues(db, &active_issues)
 
-    defer db.Close()
-
-
-    // If database returns an error
     if err != nil {
-        if err == sql.ErrNoRows {
-            c.JSON(http.StatusBadRequest, gin.H{"error": "Zero rows found!"})
+        if gorm.IsRecordNotFoundError(err) {
+            c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
         } else {
             c.JSON(http.StatusBadRequest, gin.H{"error": err})
         }
-
     } else {
-        c.JSON(http.StatusOK, "fuck this shit")
+        c.JSON(http.StatusOK, active_issues)
     }
 
 }
 
 
 // Get an issue by ID
-func GetIssue(c *gin.Context) {
-    db := c.MustGet("db").(*sql.DB)
-	id_str := c.Params.ByName("id")
+func GetAnIssue(c *gin.Context) {
 
-    id, err := strconv.Atoi(id_str)
-	if err != nil {
-		fmt.Println(err)
-	}
+    db := c.MustGet("db").(*gorm.DB)
+    id := c.Params.ByName("id")
 
-	var issue models.Issue
-	id, err = models.GetAnIssue(db, &issue, id)
+    var issue models.Issue
+    err := models.GetAnIssue(db, &issue, id)
 
-    c.JSON(http.StatusOK, id)
+    if err != nil {
+        if gorm.IsRecordNotFoundError(err) {
+            c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+        } else {
+            c.JSON(http.StatusBadRequest, gin.H{"error": err})
+        }
+    } else {
+         c.JSON(http.StatusOK, issue)
+    }
 
-    defer db.Close()
-
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err})
-	} else {
-	     c.JSON(http.StatusOK, issue)
-	}
 }

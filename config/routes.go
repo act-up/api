@@ -4,11 +4,11 @@ package config
 
 import (
             "github.com/gin-gonic/gin"
-            "database/sql"
+            "github.com/jinzhu/gorm"
             "github.com/act-up/api/controllers"
 )
 
-func SetupRoutes(db *sql.DB) *gin.Engine {
+func SetupRoutes(db *gorm.DB) *gin.Engine {
 
     // Declare a new router
     r := gin.Default()
@@ -21,8 +21,8 @@ func SetupRoutes(db *sql.DB) *gin.Engine {
     g1 := r.Group("/")
     {
         // List all issues in database
-        g1.GET("issues", controllers.GetIssues)
-        g1.POST("issues/:id", controllers.GetIssue)
+        g1.GET("issues", controllers.GetAllIssues)
+        g1.GET("issues/:id", controllers.GetAnIssue)
         //g1.GET("results", controllers.GetResults)
         //g1.GET("results/:id", controllers.GetResult)
         //g1.PUT("results/:id", controllers.UpdateResult)
