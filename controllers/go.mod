@@ -3,7 +3,7 @@ module github.com/act-up/api/controllers
 go 1.13
 
 require (
-	github.com/act-up/api/models v0.0.0-20200410084634-825a00a91e97
+	github.com/act-up/api/models v0.0.0-20200410103102-21078c0a4b67
 	github.com/gin-gonic/gin v1.6.2
 	github.com/golang/protobuf v1.3.5 // indirect
 	github.com/jinzhu/gorm v1.9.12 // indirect

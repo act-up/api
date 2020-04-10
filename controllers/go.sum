@@ -1,6 +1,8 @@
 github.com/act-up/api v0.0.0-20200410084634-825a00a91e97 h1:Do3swzfEEYXALwnc3LycAeS1doxvlWQqbajYDhKJsBc=
 github.com/act-up/api/models v0.0.0-20200410084634-825a00a91e97 h1:Va46pHYKG74II2eK1vB521UFwsx5qC92SBNTabIiCDM=
 github.com/act-up/api/models v0.0.0-20200410084634-825a00a91e97/go.mod h1:XZFrBdYvRzCVcLfMOpME0EB3/+CizWfGQphQgJ7LvTo=
+github.com/act-up/api/models v0.0.0-20200410103102-21078c0a4b67 h1:hQKRsY+9uYa1se7tO4g5hN3nMbqrlg2PLH1LemlLA48=
+github.com/act-up/api/models v0.0.0-20200410103102-21078c0a4b67/go.mod h1:XZFrBdYvRzCVcLfMOpME0EB3/+CizWfGQphQgJ7LvTo=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/denisenkom/go-mssqldb v0.0.0-20191124224453-732737034ffd/go.mod h1:xbL0rPBG9cCiLr28tMa8zpbdarY27NDyej4t/EjAShU=
