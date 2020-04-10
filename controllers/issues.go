@@ -3,6 +3,7 @@
 package controllers
 
 import (
+    "fmt"
     "net/http"
     "database/sql"
     "github.com/gin-gonic/gin"
@@ -19,13 +20,17 @@ func GetIssues(c *gin.Context) {
     row := db.QueryRow("SELECT COUNT(*) FROM active_issues")
 	err := row.Scan(&count)
 
+    fmt.Println(err)
+
+    defer db.Close()
+
    //active_issues, err := db.Query("SELECT id, first_name FROM active_issues LIMIT $1", 3)
 
     // If database returns an error
     if err != nil {
         c.JSON(http.StatusBadRequest, gin.H{"error": "No records found!"})
     } else {
-        c.JSON(http.StatusOK, count)
+        c.JSON(http.StatusOK, "hello")
     }
 
 

@@ -9,6 +9,3 @@ require (
 	github.com/jinzhu/gorm v1.9.12
 	github.com/lib/pq v1.3.0
 )
-
-replace github.com/act-up/api/controllers => /Users/antonellawilby/ActUp/api/controllers
-replace github.com/act-up/api/models => /Users/antonellawilby/ActUp/api/models
