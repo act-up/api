@@ -50,6 +50,8 @@ func GetIssue(c *gin.Context) {
 	var issue models.Issue
 	id, err = models.GetAnIssue(db, &issue, id)
 
+    c.JSON(http.StatusOK, id)
+
     defer db.Close()
 
 	if err != nil {
