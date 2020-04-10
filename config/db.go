@@ -16,11 +16,11 @@ var db *sql.DB
 func SetupDB() *sql.DB {
 
     var (
-            connectionName = mustGetenv("CLOUDSQL_CONNECTION")
-            user           = mustGetenv("CLOUDSQL_USER")
-            dbName         = os.Getenv("CLOUDSQL_DATABASE")
-            password       = os.Getenv("CLOUDSQL_PASSWORD")
-            socket         = os.Getenv("CLOUDSQL_SOCKET_PREFIX")
+            connectionName = "/cloudsql/actup-273804:us-central1:postgres-actup" //mustGetenv("CLOUDSQL_CONNECTION")
+            user           = "postgres" //mustGetenv("CLOUDSQL_USER")
+            dbName         = "advocacy_db" //os.Getenv("CLOUDSQL_DATABASE")
+            password       = "postgres" //os.Getenv("CLOUDSQL_PASSWORD")
+            socket         = "/cloudsql" //os.Getenv("CLOUDSQL_SOCKET_PREFIX")
         )
 
 
