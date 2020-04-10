@@ -3,7 +3,6 @@
 package controllers
 
 import (
-            //"fmt"
             "net/http"
             "github.com/jinzhu/gorm"
             _ "strconv"

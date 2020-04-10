@@ -2,8 +2,13 @@ github.com/act-up/api v0.0.0-20200410064033-3e820a656209 h1:6cXzn4SXm65B2CkUL7c+
 github.com/act-up/api v0.0.0-20200410064712-68dc0e72ffc7 h1:GAlZYfWMsrlXQa2k0PVcouBvFVTqjFc7ebS9VWOloOI=
 github.com/act-up/api/controllers v0.0.0-20200410072903-9a926618ff0b h1:TEaTx8oOokPiZDl7yv4cdDYQtunrZrr6eZgjRXjtMtg=
 github.com/act-up/api/controllers v0.0.0-20200410072903-9a926618ff0b/go.mod h1:fLrtFY1e4ptw6m62Qy0LKMNrvB7ccYzN9TGsl4Z/bNM=
+github.com/act-up/api/controllers v0.0.0-20200410130308-9b4a3811ce8c h1:+IVDWi3dFcmpku3jNttG2ZufYQdXuhfdmkLdgfSpo/A=
+github.com/act-up/api/controllers v0.0.0-20200410130308-9b4a3811ce8c/go.mod h1:Huv3SB7U88cfnP8mhwlaMrZ5P6PZu8V389yg6fTPXjw=
 github.com/act-up/api/models v0.0.0-20200410072903-9a926618ff0b h1:MEw+kf2z8yUytZDTVkquD1IFfEFOsnvu0IcPKTuFFlU=
 github.com/act-up/api/models v0.0.0-20200410072903-9a926618ff0b/go.mod h1:XZFrBdYvRzCVcLfMOpME0EB3/+CizWfGQphQgJ7LvTo=
+github.com/act-up/api/models v0.0.0-20200410104838-606e56f80efd/go.mod h1:XZFrBdYvRzCVcLfMOpME0EB3/+CizWfGQphQgJ7LvTo=
+github.com/act-up/api/models v0.0.0-20200410130308-9b4a3811ce8c h1:w77yh9WzqPSd/Krm6jFrB6epocdpcefcnyGNlAjNmsE=
+github.com/act-up/api/models v0.0.0-20200410130308-9b4a3811ce8c/go.mod h1:XZFrBdYvRzCVcLfMOpME0EB3/+CizWfGQphQgJ7LvTo=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/denisenkom/go-mssqldb v0.0.0-20191124224453-732737034ffd/go.mod h1:xbL0rPBG9cCiLr28tMa8zpbdarY27NDyej4t/EjAShU=

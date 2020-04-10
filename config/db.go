@@ -16,18 +16,17 @@ var db *gorm.DB
 func SetupDB() *gorm.DB {
 
     var (
-            connectionName = "actup-273804:us-central1:postgres-actup" //mustGetenv("CLOUDSQL_CONNECTION")
-            user           = "postgres" //mustGetenv("CLOUDSQL_USER")
-            dbName         = "advocacy_db" //os.Getenv("CLOUDSQL_DATABASE")
-            password       = "postgres" //os.Getenv("CLOUDSQL_PASSWORD")
-            socket         = "cloudsql" //os.Getenv("CLOUDSQL_SOCKET_PREFIX")
-            sslmode        = "disable"
+            connectionName =  mustGetenv("CLOUDSQL_CONNECTION")     // "actup-273804:us-central1:postgres-actup"
+            user           =  mustGetenv("CLOUDSQL_USER")           // "postgres"
+            dbName         =  mustGetenv("CLOUDSQL_DATABASE")       // "advocacy_db"
+            password       =  mustGetenv("CLOUDSQL_PASSWORD")       // "postgres"
+            socket         =  mustGetenv("CLOUDSQL_SOCKET_PREFIX")  // "cloudsql"
+            sslmode        =  mustGetenv("CLOUDSQL_SSLMODE")        // "disable"
         )
 
 
 
     // connection string format: user=USER password=PASSWORD host=/cloudsql/PROJECT_ID:REGION_ID:INSTANCE_ID/[ dbname=DB_NAME]
-    //dbURI := fmt.Sprintf("user=%s password=%s host=/%s/%s dbname=%s", user, password, socket, connectionName, dbName)
     dbURI := fmt.Sprintf("user=%s password=%s host=/%s/%s dbname=%s sslmode=%s", user, password, socket, connectionName, dbName, sslmode)
     conn, err := gorm.Open("postgres", dbURI)
 
