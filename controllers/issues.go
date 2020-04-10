@@ -10,7 +10,7 @@ import (
 )
 
 // Get all issues
-func GetIssues(c *gin.Context) {
+/*func GetIssues(c *gin.Context) {
 
     db := c.MustGet("db").(*sql.DB)
 
@@ -32,7 +32,7 @@ func GetIssues(c *gin.Context) {
         c.JSON(http.StatusOK, active_issues)
     }
 
-}
+}*/
 
 
 // Get an issue by ID
