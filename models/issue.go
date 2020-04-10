@@ -85,7 +85,7 @@ func GetAllIssues(db *sql.DB) (err error) {//(issues []Issue, err error) {
 
 
 // Get an issue by ID
-func GetAnIssue(db *sql.DB, issue *Issue, id string) (err error) {
+func GetAnIssue(db *sql.DB, issue *Issue, id int) (err error) {
 
     db.QueryRow("SELECT * FROM active_issues WHERE id = ?", id).Scan(&issue.ID, &issue.IssueDescription)
 

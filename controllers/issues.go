@@ -5,6 +5,7 @@ package controllers
 import (
             "net/http"
             "database/sql"
+            "strconv"
             "github.com/gin-gonic/gin"
             "github.com/act-up/api/models"
 )
@@ -38,7 +39,12 @@ func GetIssues(c *gin.Context) {
 // Get an issue by ID
 func GetIssue(c *gin.Context) {
     db := c.MustGet("db").(*sql.DB)
-	id := c.Params.ByName("id")
+	id_str := c.Params.ByName("id")
+
+    id, err := strconv.Atoi(id_str)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	var issue models.Issue
 	err := models.GetAnIssue(db, &issue, id)
