@@ -41,7 +41,7 @@ func (i *Issue) TableName() string {
 }
 
 // Get all issues in database
-func GetAllIssues(db *sql.DB) (issues []Issue, err error) {
+func GetAllIssues(db *sql.DB) {//(issues []Issue, err error) {
 
     /*var count int       // Number of rows in database
 
