@@ -20,17 +20,16 @@ func GetIssues(c *gin.Context) {
     row := db.QueryRow("SELECT COUNT(*) FROM active_issues")
 	err := row.Scan(&count)
 
-    fmt.Println(err)
-
     defer db.Close()
 
    //active_issues, err := db.Query("SELECT id, first_name FROM active_issues LIMIT $1", 3)
 
     // If database returns an error
     if err != nil {
+        fmt.Println(err)
         c.JSON(http.StatusBadRequest, gin.H{"error": "No records found!"})
     } else {
-        c.JSON(http.StatusOK, "hello")
+        c.JSON(http.StatusOK, count)
     }
 
 
