@@ -3,6 +3,7 @@
 package controllers
 
 import (
+            "fmt"
             "net/http"
             "database/sql"
             "strconv"
@@ -47,7 +48,7 @@ func GetIssue(c *gin.Context) {
 	}
 
 	var issue models.Issue
-	err := models.GetAnIssue(db, &issue, id)
+	err = models.GetAnIssue(db, &issue, id)
 
     defer db.Close()
 
