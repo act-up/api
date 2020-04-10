@@ -4,15 +4,14 @@ package models
 
 import (
             "github.com/jinzhu/gorm"
-            "encoding/json"
 )
 
 type Statistics struct {
     ID uint `json:"issue_id" gorm:"primary_key"`
     NumForms int `json:"num_forms"`
     NumEmails int `json:"num_emails"`
-    NumTwitterDMs int `json:"num_twitter_dms"`
-    Resolution json.RawMessage
+    NumTwitterDms int `json:"num_twitter_dms"`
+    //Resolution json.RawMessage
 }
 
 // Return table name

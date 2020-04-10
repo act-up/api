@@ -24,7 +24,7 @@ func SetupRoutes(db *gorm.DB) *gin.Engine {
         g1.GET("issues", controllers.GetAllIssues)
         g1.GET("issues/:id", controllers.GetAnIssue)
         g1.GET("statistics/:id", controllers.GetIssueStatistics)
-        //g1.PUT("results/:id", controllers.UpdateResult)
+        g1.PATCH("statistics/:id", controllers.UpdateStatistics)
         //g1.POST("suggest", controllers.CreateSuggestion)
 
     }

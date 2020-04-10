@@ -10,7 +10,7 @@ import (
             "github.com/act-up/api/models"
 )
 
-// Get all issues
+// GET: Get all issues
 func GetAllIssues(c *gin.Context) {
 
     db := c.MustGet("db").(*gorm.DB)
@@ -31,7 +31,7 @@ func GetAllIssues(c *gin.Context) {
 }
 
 
-// Get an issue by ID
+// GET: Get an issue by ID
 func GetAnIssue(c *gin.Context) {
 
     db := c.MustGet("db").(*gorm.DB)

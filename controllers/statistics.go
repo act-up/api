@@ -10,7 +10,7 @@ import (
             "github.com/act-up/api/models"
 )
 
-// Get statistics for an issue by ID
+// GET: Get statistics for an issue by ID
 func GetIssueStatistics(c *gin.Context) {
     db := c.MustGet("db").(*gorm.DB)
 	id := c.Params.ByName("id")
@@ -26,9 +26,10 @@ func GetIssueStatistics(c *gin.Context) {
 }
 
 
-// Update an issue statistics record when click event logged
+// PATCH: Update an issue statistics record when click event logged
 func UpdateStatistics(c *gin.Context) {
-    /*db := c.MustGet("db").(*gorm.DB)
+
+    db := c.MustGet("db").(*gorm.DB)
 
 	var stats models.Statistics
 	id := c.Params.ByName("id")
@@ -44,6 +45,6 @@ func UpdateStatistics(c *gin.Context) {
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
 	} else {
-		c.JSON(http.StatusOK, stats)
-	}*/
+		c.JSON(http.StatusOK, gin.H{"data": stats})
+	}
 }
