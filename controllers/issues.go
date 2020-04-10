@@ -55,7 +55,7 @@ func GetIssue(c *gin.Context) {
     defer db.Close()
 
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": id})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err})
 	} else {
 	     c.JSON(http.StatusOK, issue)
 	}
