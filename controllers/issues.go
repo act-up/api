@@ -32,7 +32,7 @@ import (
         c.JSON(http.StatusOK, active_issues)
     }
 
-}*/
+}
 
 
 // Get an issue by ID
@@ -46,7 +46,7 @@ func GetIssue(c *gin.Context) {
     defer db.Close()
 
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err})
 	} else {
 	     c.JSON(http.StatusOK, issue)
 	}

@@ -41,9 +41,9 @@ func (i *Issue) TableName() string {
 }
 
 // Get all issues in database
-/*func GetAllIssues(db *sql.DB) (issues []Issue, err error) {
+func GetAllIssues(db *sql.DB) (issues []Issue, err error) {
 
-    var count int       // Number of rows in database
+    /*var count int       // Number of rows in database
 
     // Count number of rows in database
     row := db.QueryRow("SELECT COUNT(*) FROM active_issues")
@@ -77,11 +77,11 @@ func (i *Issue) TableName() string {
 
     if err := rows.Err(); err != nil {
         log.Fatal(err)
-    }
+    }*/
 
-    return active_issues, err
+    return nil
 
-}*/
+}
 
 
 // Get an issue by ID
