@@ -5,7 +5,7 @@ package config
 import (
             "github.com/gin-gonic/gin"
             "database/sql"
-            //"github.com/act-up/backend/api/controllers"
+            "github.com/act-up/api/controllers"
 )
 
 func SetupRoutes(db *sql.DB) *gin.Engine {
@@ -18,7 +18,7 @@ func SetupRoutes(db *sql.DB) *gin.Engine {
         c.Next()
     })
 
-    /*g1 := r.Group("/")
+    g1 := r.Group("/")
     {
         // List all issues in database
         g1.GET("issues", controllers.GetIssues)
@@ -28,7 +28,7 @@ func SetupRoutes(db *sql.DB) *gin.Engine {
         g1.PUT("results/:id", controllers.UpdateResult)
         g1.POST("suggest", controllers.CreateSuggestion)
 
-    }*/
+    }
 
     return r
 

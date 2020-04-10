@@ -6,7 +6,7 @@ import (
     "net/http"
     "github.com/jinzhu/gorm"
     "github.com/gin-gonic/gin"
-    "github.com/act-up/backend/api/models"
+    "github.com/act-up/api/models"
 )
 
 // Get all issues
