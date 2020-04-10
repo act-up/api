@@ -100,7 +100,7 @@ func GetAnIssue(db *sql.DB, issue *Issue, id int) (id_return int, err error) {
     }
     defer db.Close()
 
-    return id, err
+    return id_return, err
 
 }
 
