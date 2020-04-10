@@ -85,9 +85,13 @@ func GetAllIssues(db *sql.DB) (err error) {//(issues []Issue, err error) {
 
 
 // Get an issue by ID
-func GetAnIssue(db *sql.DB, issue *Issue, id int) (err error) {
-    fmt.Printf("id: ", id)
+func GetAnIssue(db *sql.DB, issue *Issue, id int) (id_return int, err error) {
+    if id == 1 {
+        fmt.Printf("id: ", id)
+    }
 
+
+    id_return = id
     err = db.QueryRow("SELECT * FROM active_issues WHERE id=$1;", id).Scan(&issue.ID, &issue.IssueDescription)
 
     if err != nil {
@@ -96,7 +100,7 @@ func GetAnIssue(db *sql.DB, issue *Issue, id int) (err error) {
     }
     defer db.Close()
 
-    return nil
+    return id, err
 
 }
 

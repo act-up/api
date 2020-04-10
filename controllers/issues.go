@@ -48,7 +48,7 @@ func GetIssue(c *gin.Context) {
 	}
 
 	var issue models.Issue
-	err = models.GetAnIssue(db, &issue, id)
+	id, err = models.GetAnIssue(db, &issue, id)
 
     defer db.Close()
 
