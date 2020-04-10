@@ -3,6 +3,7 @@
 package models
 
 import (
+            "fmt"
             "database/sql"
             //"database/sql/driver"
             //"encoding/json"
@@ -89,7 +90,8 @@ func GetAnIssue(db *sql.DB, issue *Issue, id string) (err error) {
     db.QueryRow("SELECT * FROM active_issues WHERE id = ?", id).Scan(&issue.ID, &issue.IssueDescription)
 
     if err != nil {
-	       log.Fatal(err)
+        fmt.Printf("Error: %s\n", err)
+	    log.Fatal(err)
     }
     defer db.Close()
 
