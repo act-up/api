@@ -4,7 +4,7 @@ package config
 
 import (
             "github.com/gin-gonic/gin"
-            "github.com/gin-contrib/cors"
+            _ "github.com/gin-contrib/cors"
             "github.com/jinzhu/gorm"
             "github.com/act-up/api/controllers"
 )
@@ -14,26 +14,14 @@ func SetupRoutes(db *gorm.DB) *gin.Engine {
     // Declare a new router
     r := gin.Default()
 
+    r.Use(CORS(db))
+
     //r.Use(cors.Default())   // use default cors policies to allow all origins
 
-    r.Use(func(c *gin.Context) {
-        cors.Default()
+    /*r.Use(func(c *gin.Context) {
         c.Set("db", db)
         c.Next()
-    })
-
-    /*r.Use(cors.New(cors.Config {
-        AllowOrigins:     []string{"*"},
-        AllowMethods:     []string{"GET", "PATCH"},
-        AllowHeaders:     []string{"Origin"},
-        ExposeHeaders:    []string{"Content-Length"},
-        AllowCredentials: true,
-        AllowOriginFunc: func(origin string) bool {
-            return origin == "https://actup.us"
-       },
-       MaxAge: 3600,
-
-    }))*/
+    })*/
 
     g1 := r.Group("/")
     {
@@ -48,4 +36,24 @@ func SetupRoutes(db *gorm.DB) *gin.Engine {
 
     return r
 
+}
+
+
+func CORS(db *gorm.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+        c.Set("db", db)
+
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, PATCH")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+
+		c.Next()
+	}
 }
