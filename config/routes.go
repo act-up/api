@@ -14,14 +14,10 @@ func SetupRoutes(db *gorm.DB) *gin.Engine {
     // Declare a new router
     r := gin.Default()
 
+    // Write custom http header to allow all origins: TODO only allow www.actup.us
     r.Use(CORS(db))
 
     //r.Use(cors.Default())   // use default cors policies to allow all origins
-
-    /*r.Use(func(c *gin.Context) {
-        c.Set("db", db)
-        c.Next()
-    })*/
 
     g1 := r.Group("/")
     {
