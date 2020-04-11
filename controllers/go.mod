@@ -12,4 +12,4 @@ require (
 	golang.org/x/sys v0.0.0-20200409092240-59c9f1ba88fa // indirect
 )
 
-replace github.com/act-up/api/models => /Users/antonellawilby/ActUp/api/models
+//replace github.com/act-up/api/models => /Users/antonellawilby/ActUp/api/models
